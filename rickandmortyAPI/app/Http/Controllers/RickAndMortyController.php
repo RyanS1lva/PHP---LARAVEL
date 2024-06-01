@@ -20,7 +20,27 @@ class RickAndMortyController extends Controller
         curl_close($ch);
 
         $character = json_decode($data, true);
+        $origin = $character['origin']['name'];
 
-        return view('character', ['character' => $character]);
+
+        switch($character['status']){
+            case 'Alive':
+                $status = 'Vivo';
+                break;
+            case 'Dead':
+                $status = 'Morto';
+                break;
+            case 'unknown':
+                $status = 'Desconhecido';
+                break;
+        }
+
+        switch($origin){
+            case 'unknown':
+                $origin = 'Desconhecido';
+                break;
+        }
+
+        return view('character', ['character' => $character, 'status' => $status, 'origin' => $origin]);
     }
 }

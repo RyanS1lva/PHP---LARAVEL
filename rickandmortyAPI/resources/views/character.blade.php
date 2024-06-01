@@ -15,13 +15,8 @@
     <main>
         <img src="{{"https://rickandmortyapi.com/api/character/avatar/{$character['id']}.jpeg"}}" alt="" class="imagem-avatar">
         <h2>{{ $character['name'] }}</h2>
-        @if($character['status'] == 'Alive')
-            <p>Status do personagem: Vivo</p>
-        @elseif($character['status'] == 'Dead')
-            <p>Status do personagem: Morto</p>
-        @elseif($character['status'] == 'unknown')
-            <p>Status do personagem: Sem informações</p>
-        @endif
+        <p>Status do personagem: {{ $status }}</p>
+        <p>Local de origem: {{ $origin }}</p>
         <div class="container">
             @if($character['id'] > 1)
             <a href="{{ url('/personagem/' . $character['id'] - 1)}}">
