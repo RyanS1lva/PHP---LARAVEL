@@ -6,7 +6,12 @@ use Illuminate\Http\Request;
 
 class RickAndMortyController extends Controller
 {
-    public function getCharactersById(int $id = 1){
+    public function getCharactersById(Request $request, int $id = 1){
+
+          if ($request->has('id') && $request->input('id') != '') {
+            $id = $request->input('id');
+        }
+
         $url = "https://rickandmortyapi.com/api/character/{$id}";
 
         $ch = curl_init();

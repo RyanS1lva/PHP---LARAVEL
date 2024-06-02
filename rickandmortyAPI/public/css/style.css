@@ -18,9 +18,45 @@ main{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 90vh;
+    height: 85vh;
     width: 100vw;
     flex-direction: column;
+}
+
+form{
+    height: 5vh;
+    width: 100vw;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+form > input{
+    margin-right: 10px;
+    margin-left: 10px;
+    width: 12%;
+    height: 50%;
+    outline: none;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+form > input::placeholder{
+    color: #24BF0F;
+}
+
+.botao{
+    height: 60%;
+    width: 2%;
+    margin-right: 10px;
+    background-color: #24BF0F;
+    color: black;
+    border: none;
+    border-radius: 5px;
+}
+
+.botao:hover{
+    cursor: pointer;
 }
 
 .imagem-avatar{
@@ -50,4 +86,14 @@ p{
 
 .container{
     margin-top: 20px;
+}
+
+@media (max-width: 800px) {
+    .botao{
+        width: 10%;
+    }
+
+    form > input{
+        width: 30%;
+    }
 }
