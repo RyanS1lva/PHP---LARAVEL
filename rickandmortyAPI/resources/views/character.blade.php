@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Rick and Morty API</title>
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" href="/img/Rick and Morty Portal.png">
 </head>
 <body>
     <header>
