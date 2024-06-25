@@ -11,4 +11,5 @@ class Mark extends Model
     use HasFactory;
 
     protected $table = 'registros';
+    protected $fillable = ['horario', 'entrada', 'user_id'];
 }

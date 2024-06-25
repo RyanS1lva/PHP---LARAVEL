@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
 {
@@ -22,6 +23,8 @@ class HomeController extends Controller
 
         if($user && password_verify($request->input('password'), $user->password)){
             Auth::loginUsingId($user->id);
+            Session::regenerate();
+
             return redirect()->route('mark.index');
         }
 

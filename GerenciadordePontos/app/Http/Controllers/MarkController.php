@@ -10,11 +10,19 @@ use Illuminate\Http\Request;
 
 class MarkController extends Controller
 {
+    public $userID;
+    public function __construct () {
+        $this->userID = Auth::id();
+    }
+
     public function index () {
         $time = Carbon::now();
         $today = $time->toDateString();
 
-        $marksToday = Mark::whereDate('horario', $today)->orderby('horario')->get();
+        $marksToday = Mark::where('user_id', $this->userID)
+        ->whereDate('horario', $today)
+        ->orderby('horario')
+        ->get();
 
         foreach($marksToday as $mark){
             if($mark->entrada == 1){
@@ -31,13 +39,16 @@ class MarkController extends Controller
         $time = Carbon::now();
         $today = $time->toDateString();
         
-        $lastMark = Mark::whereDate('horario', $today)->latest()->first();
+        $lastMark = Mark::where('user_id', $this->userID)
+        ->whereDate('horario', $today)
+        ->latest()
+        ->first();
 
         if($lastMark == null || $lastMark->entrada == 0){
             $mark = new Mark();
             $mark->horario = $time;
             $mark->entrada = 1;
-
+            $mark->user_id = Auth::id();
             $mark->save();
         }
 
@@ -45,7 +56,7 @@ class MarkController extends Controller
             $mark = new Mark();
             $mark->horario = $time;
             $mark->entrada = 0;
-
+            $mark->user_id = Auth::id();
             $mark->save();
         }
 

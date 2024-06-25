@@ -118,6 +118,35 @@ main{
     width: 30%;
 }
 
+@media (max-width: 1000px) {
+
+    #title-home{
+        display: none;
+    }
+
+    .home{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .form-home{
+        display: flex;
+        width: 100vw;
+        position: absolute;
+    }
+
+    .erros{
+        display: flex;
+        width: 100vw;
+        position: relative;
+        top: 350px;
+    }
+
+    .erros > div{
+        display: flex;
+        width: 75%;
+    }
+}
 
 
 

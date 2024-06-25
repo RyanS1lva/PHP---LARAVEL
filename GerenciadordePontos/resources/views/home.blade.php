@@ -8,6 +8,7 @@
     <div class="home">
         <div class="form-home">
             <form  action="{{ route('home.store') }}" method="post">
+              <h2>Login</h2>
                 @csrf
                 <div class="form-group">
                   <label for="email">E-mail</label>
