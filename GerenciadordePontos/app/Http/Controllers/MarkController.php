@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Mark;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
 
@@ -50,5 +51,11 @@ class MarkController extends Controller
 
     
         return redirect()->route('mark.index');
+    }
+
+    public function destroy () {
+        Auth::logout();
+        
+        return redirect()->route('home.index');
     }
 }

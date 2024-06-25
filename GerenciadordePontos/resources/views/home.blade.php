@@ -5,8 +5,31 @@
 @section('content')
 
 <main>
-    <div class="container">
-        <a href="{{ route('mark.index') }}" class="button-def">Ir registrar ponto</a>
+    <div class="home">
+        <div class="form-home">
+            <form  action="{{ route('home.store') }}" method="post">
+                @csrf
+                <div class="form-group">
+                  <label for="email">E-mail</label>
+                  <input type="email" class="form-control" placeholder="Insira o seu e-mail" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Senha</label>
+                    <input type="password" class="form-control" placeholder="Insira a sua senha" name="password" required>
+                  </div>
+                  <button type="submit" class="btn btn-secondary">Acessar</button>
+              </form>
+              <a href="{{ route('register.index') }}" id="regis-link">Registre-se</a>
+              @if(session()->has('message'))
+                <p class="message">{{ session()->get('message') }}</p>
+              @endif
+              @error('error')
+                <span>{{ $message }}</span>
+              @enderror
+        </div>
+        <div id="title-home">
+           <h2>Dot Mark, <br> sempre atualizado no devido tempo.</h2>
+        </div>
     </div>
 </main>
 
