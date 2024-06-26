@@ -19,10 +19,7 @@ class MarkController extends Controller
         $time = Carbon::now();
         $today = $time->toDateString();
 
-        $marksToday = Mark::where('user_id', $this->userID)
-        ->whereDate('horario', $today)
-        ->orderby('horario')
-        ->get();
+        $marksToday = Mark::whereDate('horario', $today)->orderby('horario')->get();
 
         foreach($marksToday as $mark){
             if($mark->entrada == 1){

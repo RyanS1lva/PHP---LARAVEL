@@ -16,10 +16,12 @@
             </thead>
             <tbody>
                 @foreach($marksToday as $mark)
+                @can('view-mark', $mark)
                 <tr>
                   <td>{{ $mark->entrada }}</td>
                   <td>{{ date("H:i:s d/m/Y", strtotime($mark->horario)) }}</td>
                 </tr>
+                @endcan
                 @endforeach
             </tbody>
         </table>
