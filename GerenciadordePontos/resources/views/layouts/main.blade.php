@@ -13,6 +13,7 @@
     <header>
         <img src="/assets/img/mark-logo.png" alt="" class="mark-logo">
         <nav>
+            {{-- Somente o usuário que já acessou com sua conta pode ver o link para "Logout" --}}
             @auth
             <a href="{{ route('mark.destroy') }}">Logout</a>
             @endauth

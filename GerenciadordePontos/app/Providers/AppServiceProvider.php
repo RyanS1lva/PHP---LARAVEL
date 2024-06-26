@@ -22,6 +22,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+
+        // Gate para retornar aos usuários na view somente os pontos registrados pelo seu usuário.
         Gate::define('view-mark', function (User $user, Mark $mark) {
             return $user->id == $mark->user_id;
         });

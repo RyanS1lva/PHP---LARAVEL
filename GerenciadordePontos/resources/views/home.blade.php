@@ -24,6 +24,7 @@
               @if(session()->has('message'))
                 <p class="message">{{ session()->get('message') }}</p>
               @endif
+              {{-- Caso tenha algum erro retornado para a rota é exibido ao usuário a mensagem de acordo --}}
               @error('error')
                 <span>{{ $message }}</span>
               @enderror

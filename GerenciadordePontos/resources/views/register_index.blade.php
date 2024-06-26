@@ -31,6 +31,7 @@
             <a href="{{ route('home.index') }}" id="regis-link">Já possuo um cadastro</a>
         </div>
         <div class="erros">
+            {{-- Exibindo os erros ao usuário caso tenha algum --}}
             @if ($errors->any())
                 <div class="alert alert-danger">
                     <ul>
