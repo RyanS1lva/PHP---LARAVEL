@@ -15,6 +15,10 @@
         <nav>
             {{-- Somente o usuário que já acessou com sua conta pode ver o link para "Logout" --}}
             @auth
+            {{-- Somente o usuário logado como administrador pode visualizar o link --}}
+            @can('admin-mark', Auth::user())
+            <a href="{{ route('admin.index') }}">Administrador</a>
+            @endcan
             <a href="{{ route('mark.destroy') }}">Logout</a>
             @endauth
         </nav>
